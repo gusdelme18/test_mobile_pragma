@@ -1,0 +1,7 @@
+{
+  "name": "Test Mobile Pragma",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

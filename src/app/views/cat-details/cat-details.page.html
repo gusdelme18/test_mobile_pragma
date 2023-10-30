@@ -1,0 +1,35 @@
+<ion-header [translucent]="true" >
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" >
+
+  <div class="content__img">
+    <img src="https://cdn2.thecatapi.com/images/{{ cats.reference_image_id }}.jpg" style="width: 100%; height: 100%; object-fit: cover;">
+  </div>
+  <div class="content__info">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6" size-md="6" >
+          <h2 class="tittle__pragma">{{cats.name}}</h2>
+        </ion-col>
+        <ion-col size="6" size-md="6">
+          <p style="margin-top: 20px;"><ion-icon name="location-outline" class="icon__color_pragma"></ion-icon> Origen: {{cats.origin}}</p>
+        </ion-col>
+
+        <ion-col size="12" size-md="12">
+          <p><ion-icon name="pulse-outline" class="icon__color_pragma"></ion-icon> Vida: {{cats.life_span}} años</p>
+          <p><ion-icon name="thermometer-outline" class="icon__color_pragma"></ion-icon> Temperamento : {{cats.temperament}}</p>
+          <p><ion-icon name="battery-charging-outline" class="icon__color_pragma"></ion-icon> Energia: {{cats.energy_level}}</p>
+          <h4>Descripcion:</h4>
+          <p>{{cats.description}}</p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+</ion-content>

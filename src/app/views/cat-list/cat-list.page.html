@@ -1,0 +1,53 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>cat-list</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="welcome">
+  <ion-grid [fixed]="true">
+    <ion-row>
+      <ion-col>
+        <div>
+          <h2>Hola, <span class="tittle__pragma"> Pragma</span> </h2>
+          <h3>Bienvenidos a la vista de Gatos</h3>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-searchbar show-clear-button="focus" (ionInput)="searchCats($event)"></ion-searchbar>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid class="bg__white border_round_top ">
+
+    <ion-title size="large" class="tittle__black">Gatos</ion-title>
+
+    <ion-card *ngFor="let cat of catModel.filteredCats" (click)="detailsCats(cat)">
+      <ion-card-content class="no__margin no__padding">
+        <ion-grid class="no__margin no__padding">
+          <ion-row>
+            <ion-col size="6" size-md="6" class="no__margin no__padding">
+              <img src="https://cdn2.thecatapi.com/images/{{ cat.reference_image_id }}.jpg" style="width: 100%; height: 100%; object-fit: cover;">
+            </ion-col>
+            <ion-col size="6" size-md="6" style="padding-top: 10%;">
+              <h2 class="tittle__pragma">{{ cat.name }}</h2>
+              <p><ion-icon name="pulse-outline"></ion-icon> Vida: {{ cat.life_span }}</p>
+              <!--p><ion-icon name="thermometer-outline"></ion-icon> Temperamento: {{ cat.temperament }}</p-->
+              <p><ion-icon name="location-outline"></ion-icon> Origen: {{ cat.origin }}</p>
+              <p><ion-icon name="happy-outline"></ion-icon> Inteligencia: {{ cat.intelligence }}</p>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-infinite-scroll (ionInfinite)="loadMore($event)">
+      <ion-infinite-scroll-content loadingText="Cargando..." ></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+
+
+  </ion-grid>
+</ion-content>
